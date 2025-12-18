@@ -10,13 +10,14 @@ terraform {
 provider "azurerm" {
   features {}
   
-  subscription_id = var.subscription_id
-  client_id       = var.client_id
-  client_secret   = var.client_secret
-  tenant_id       = var.tenant_id
+  # Credentials come from environment variables
+  # GitHub Actions sets these from secrets
+  # Locally you can set them or use 'az login'
+  
+  resource_provider_registrations = "none"
 }
 
-# Example: Create a Resource Group
+# Resource Group
 resource "azurerm_resource_group" "example" {
   name     = "rg-pipeline-demo"
   location = "East US"
@@ -24,5 +25,6 @@ resource "azurerm_resource_group" "example" {
   tags = {
     environment = "dev"
     project     = "gcp-to-azure"
+    managed_by  = "terraform"
   }
 }
