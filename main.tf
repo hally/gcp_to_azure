@@ -13,8 +13,7 @@ provider "azurerm" {
   # Credentials come from environment variables
   # GitHub Actions sets these from secrets
   # Locally you can set them or use 'az login'
-
-  resource_provider_registrations = "none"  
+  
 }
 
 # Resource Group
