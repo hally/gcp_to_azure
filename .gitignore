@@ -7,3 +7,6 @@
 
 # Local environment files
 .env
+
+# AI Pipeline (work in progress)
+ai-pipeline/
